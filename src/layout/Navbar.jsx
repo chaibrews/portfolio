@@ -34,7 +34,8 @@ export const Navbar = () => {
           href="#"
           className="font-bold font-mono tracking-wider hover:text-primary"
         >
-          <span className="text-primary">~/</span>chaibrews
+          <span className="text-primary">~/</span>chaibrews{" "}
+          <span className="text-xl text-primary">☕︎</span>
         </a>
 
         {/* Desktop Nav */}
@@ -44,7 +45,7 @@ export const Navbar = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm px-4 py-2  text-muted-foreground hover:text-primary rounded-full hover:bg-surface"
+                className="text-xs px-4 py-2 font-mono text-muted-foreground hover:text-primary rounded-full hover:bg-surface"
               >
                 {link.label}
               </a>
@@ -54,9 +55,9 @@ export const Navbar = () => {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <Button size="sm" className="nav-button">
+          <a href="#contact" className="primary-button">
             Contact Me
-          </Button>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -83,7 +84,7 @@ export const Navbar = () => {
               </a>
             ))}
 
-            <Button className="nav-button">Contact Me</Button>
+            <Button className="primary-button">Contact Me</Button>
           </div>
         </div>
       )}

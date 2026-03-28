@@ -24,7 +24,7 @@ export const Hero = () => {
           </div>
           {/* Intro */}
           <h1>
-            <span className="text-4xl md:text-6xl font-bold tracking-tight">
+            <span className="text-5xl md:text-6xl font-bold tracking-tight">
               hi, i'm <span className="text-primary">chai</span>.
             </span>
           </h1>
@@ -37,8 +37,7 @@ export const Hero = () => {
           </p>
 
           <div className="pt-4 opacity-0 animate-fade-in">
-            <a href="#projects" className="nav-button">
-              {" "}
+            <a href="#projects" className="primary-button">
               View My Work
             </a>
           </div>
