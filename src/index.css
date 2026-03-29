@@ -19,7 +19,7 @@
 }
 
 :root {
-  --color-test: #de9bbf;
+  --color-test: #b3a3bd;
 }
 
 @theme {
@@ -35,7 +35,7 @@
   --color-secondary-foreground: #de9bbf;
 
   --color-muted: #252e37;
-  --color-muted-foreground: #9d8ba9;
+  --color-muted-foreground: #bbaec3;
 
   --color-border: #242b32;
 
@@ -124,5 +124,9 @@
     @apply px-6 py-2 font-mono text-xs rounded-full border border-primary text-primary 
            transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
            hover:scale-105 active:scale-95 inline-block;
+  }
+
+  .card-hover {
+    @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
   }
 }
