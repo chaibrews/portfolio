@@ -10,7 +10,7 @@ export const About = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-4 px-6 md:px-0">
-            <h3 className="text-xl font-semibold tracking-tight">
+            <h3 className="text-xl tracking-tight">
               <p>
                 <span className="text-highlight">Software Engineer</span> by
                 Trade・<span className="text-primary">Web Developer</span> by
@@ -67,7 +67,7 @@ export const About = () => {
                   <Code className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">Web Development</h4>
+                  <h4 className="text-lg">Web Development</h4>
                   <p className="text-muted-foreground">
                     Creating responsive websites and web applications with
                     modern frameworks.
@@ -81,7 +81,7 @@ export const About = () => {
                   <User className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">UI/UX Design</h4>
+                  <h4 className="text-lg">UI/UX Design</h4>
                   <p className="text-muted-foreground">
                     Designing intuitive user interfaces and seamless user
                     experiences.
@@ -96,7 +96,7 @@ export const About = () => {
                 </div>
 
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">Project Management</h4>
+                  <h4 className="text-lg">Project Management</h4>
                   <p className="text-muted-foreground">
                     Leading projects from conception to completion with agile
                     methodologies.

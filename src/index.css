@@ -10,16 +10,16 @@
 }
 
 @font-face {
-  font-family: "Satoshi";
-  font-style: italic;
-  font-weight: normal;
+  font-family: "Satoshi Regular";
+  font-style: normal;
+  font-weight: bold;
   src:
-    local("Satoshi Italic"),
-    url("fonts/Satoshi-Italic.woff") format("woff");
+    local("Satoshi Bold"),
+    url("fonts/Satoshi-Bold.woff") format("woff");
 }
 
 :root {
-  --color-test: #b3a3bd;
+  --color-test: #100e13;
 }
 
 @theme {
@@ -31,7 +31,7 @@
   --color-primary: #de9bbf;
   --color-primary-foreground: #ffffff;
 
-  --color-secondary: #1f2830;
+  --color-secondary: #100e13;
   --color-secondary-foreground: #de9bbf;
 
   --color-muted: #252e37;
