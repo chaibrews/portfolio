@@ -19,11 +19,11 @@
 }
 
 :root {
-  --color-test: #100e13;
+  --color-test: #0c0b0d;
 }
 
 @theme {
-  --color-background: #140f18;
+  --color-background: #0c0b0d;
   --color-foreground: #f0f2f5;
 
   --color-card: #141a1f;
