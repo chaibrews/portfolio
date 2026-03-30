@@ -2,7 +2,7 @@ import { ArrowDown } from "lucide-react";
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-10">
       {/* Bg */}
       <div className="absolute inset-0">
         <img
@@ -13,7 +13,7 @@ export const Hero = () => {
       </div>
 
       {/* Main Content */}
-      <div className="container max-w-4xl mx-auto text-center z-10">
+      <div className="container max-w-3xl mx-auto text-center z-10">
         <div className="space-y-6">
           {/* Status Indicator */}
           <div className="flex items-center justify-center ">
@@ -29,7 +29,7 @@ export const Hero = () => {
             </span>
           </h1>
 
-          <p className="px-6">
+          <p>
             I'm a Software Engineer with 1.5+ years of experience. In the day, I
             refine systems, keep production stable, and resolve what breaks. At
             night,{" "}

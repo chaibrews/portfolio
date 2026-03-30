@@ -2,14 +2,14 @@ import { Code, User, Briefcase } from "lucide-react";
 
 export const About = () => {
   return (
-    <section className="py-36 px-4 relative" id="about">
+    <section className="py-36 px-10 relative" id="about">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-12 text-center">
           READ<span className="text-primary">ME</span>.md
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-4 px-6 md:px-0">
+          <div className="space-y-4">
             <h3 className="text-xl tracking-tight">
               <p>
                 <span className="text-highlight">Software Engineer</span> by
