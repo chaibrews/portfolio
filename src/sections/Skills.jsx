@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Reveal } from "@/components/Reveal";
 
 const SKILLS = [
   // Web Dev - Frontend
@@ -64,45 +65,51 @@ export const Skills = () => {
   return (
     <section id="skills" className="py-48 px-10">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          My <span className="text-primary">Skills</span>
-        </h2>
+        <Reveal variant="fade">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            My <span className="text-primary">Skills</span>
+          </h2>
+        </Reveal>
 
-        {/* Category Nav */}
-        <div className="font-mono text-sm flex mb-8 gap-2">
-          {CATEGORIES.map(({ key, label }) => (
-            <button
-              key={key}
-              onClick={() => setActiveCategory(key)}
-              className={`flex-1 px-4 py-2 rounded-lg transition ${
-                activeCategory === key
-                  ? "bg-primary text-black"
-                  : "text-white/60 hover:text-primary"
-              }`}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
+        <Reveal variant="slide-up" delay={100}>
+          {/* Category Nav */}
+          <div className="font-mono text-sm flex mb-8 gap-2">
+            {CATEGORIES.map(({ key, label }) => (
+              <button
+                key={key}
+                onClick={() => setActiveCategory(key)}
+                className={`flex-1 px-4 py-2 rounded-lg transition ${
+                  activeCategory === key
+                    ? "bg-primary text-black"
+                    : "text-white/60 hover:text-primary"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </Reveal>
 
-        {/* Skills Content */}
+        {/* Skills Content — each subcategory group staggers in */}
         <div className="space-y-6">
-          {Object.entries(grouped).map(([subcategory, items]) => (
-            <div key={subcategory}>
-              <h3 className="text-xs font-mono font-semibold mb-3 text-highlight uppercase tracking-widest">
-                {subcategory}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {items.map((skill) => (
-                  <span
-                    key={skill.name}
-                    className="px-3 py-1 text-sm rounded-full glass bg-secondary text-muted-foreground tag-hover"
-                  >
-                    {skill.name}
-                  </span>
-                ))}
+          {Object.entries(grouped).map(([subcategory, items], i) => (
+            <Reveal key={subcategory} variant="slide-up" delay={i * 80}>
+              <div>
+                <h3 className="text-xs font-mono font-semibold mb-3 text-highlight uppercase tracking-widest">
+                  {subcategory}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {items.map((skill) => (
+                    <span
+                      key={skill.name}
+                      className="px-3 py-1 text-sm rounded-full glass bg-secondary text-muted-foreground tag-hover"
+                    >
+                      {skill.name}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

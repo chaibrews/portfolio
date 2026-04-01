@@ -1,5 +1,6 @@
 import { ExternalLink } from "lucide-react";
 import { siGithub } from "simple-icons";
+import { Reveal } from "@/components/Reveal";
 
 const projects = [
   {
@@ -66,79 +67,98 @@ export const Projects = () => {
   return (
     <section id="projects" className="py-24 px-10 relative">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center">
-          Featured <span className="text-primary">Projects</span>
-        </h2>
-        <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
-          A selection of projects that I've built for fun and to learn new
-          technologies.
-        </p>
+        <Reveal variant="fade">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center">
+            Featured <span className="text-primary">Projects</span>
+          </h2>
+          <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
+            A selection of projects that I've built for fun and to learn new
+            technologies.
+          </p>
+        </Reveal>
 
-        {/* Project Cards */}
+        {/* Project Cards — staggered */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
           {projects.map((project, key) => (
-            <div
-              key={key}
-              className="group glass card-hover rounded-lg overflow-hidden shadow-xs"
-            >
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-xl mb-1 text-center">{project.title}</h3>
-                <p className="text-sm text-muted-foreground mb-4 text-center">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-10">
-                  {project.tags.map((tag) => (
-                    <span className="px-2 py-1 text-[8px] font-mono border rounded-md bg-secondary text-muted-foreground">
-                      {tag}
-                    </span>
-                  ))}
+            <Reveal key={project.id} variant="slide-up" delay={key * 120}>
+              <div className="group glass card-hover rounded-lg overflow-hidden shadow-xs h-full">
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
                 </div>
 
-                <div className="absolute bottom-0 left-0 p-6 flex justify-between items-center">
-                  <div className="flex space-x-3">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <GithubIcon />
-                    </a>
+                <div className="p-6 relative">
+                  {/* Status badge */}
+                  <div className="flex items-center justify-center gap-2 mb-1">
+                    <h3 className="text-xl text-center">{project.title}</h3>
+                    {project.status === "In Progress" && (
+                      <span className="text-[8px] font-mono px-2 py-0.5 rounded-full border border-highlight/40 text-highlight">
+                        in progress
+                      </span>
+                    )}
+                  </div>
+
+                  <p className="text-sm text-muted-foreground mb-4 text-center">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-10">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-1 text-[8px] font-mono border rounded-md bg-secondary text-muted-foreground"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="absolute bottom-0 left-0 p-6 flex justify-between items-center">
+                    <div className="flex space-x-3">
+                      {project.demoUrl && (
+                        <a
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                        >
+                          <ExternalLink size={20} />
+                        </a>
+                      )}
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                        >
+                          <GithubIcon />
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 
         {/* Github Button */}
-        <div className="text-center mt-6">
-          <a
-            className="primary-button"
-            href="https://github.com/chaibrews"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Check My Github →
-          </a>
-        </div>
+        <Reveal variant="fade" delay={200}>
+          <div className="text-center mt-6">
+            <a
+              className="primary-button"
+              href="https://github.com/chaibrews"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Check My Github →
+            </a>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
