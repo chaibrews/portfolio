@@ -62,7 +62,7 @@ export const Skills = () => {
   );
 
   return (
-    <section id="skills" className="py-24 px-10">
+    <section id="skills" className="py-48 px-10">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
           My <span className="text-primary">Skills</span>
@@ -77,7 +77,7 @@ export const Skills = () => {
               className={`flex-1 px-4 py-2 rounded-lg transition ${
                 activeCategory === key
                   ? "bg-primary text-black"
-                  : "text-white/60 hover:text-white"
+                  : "text-white/60 hover:text-primary"
               }`}
             >
               {label}
@@ -96,7 +96,7 @@ export const Skills = () => {
                 {items.map((skill) => (
                   <span
                     key={skill.name}
-                    className="px-3 py-1 text-sm rounded-full glass bg-secondary text-muted-foreground card-hover"
+                    className="px-3 py-1 text-sm rounded-full glass bg-secondary text-muted-foreground tag-hover"
                   >
                     {skill.name}
                   </span>

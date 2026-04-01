@@ -1,5 +1,4 @@
 import { useState, useEffect, use } from "react";
-import { Button } from "@/components/Button";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -84,7 +83,9 @@ export const Navbar = () => {
               </a>
             ))}
 
-            <Button className="primary-button">Contact Me</Button>
+            <a href="#contact" className="primary-button">
+              Contact Me
+            </a>
           </div>
         </div>
       )}

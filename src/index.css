@@ -129,4 +129,11 @@
   .card-hover {
     @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
   }
+
+  .tag-hover {
+    @apply transition duration-300 
+         cursor-pointer hover:scale-[1.05] hover:shadow-md 
+         hover:text-white hover:text-black 
+         active:scale-[0.95] active:shadow-inner;
+  }
 }
