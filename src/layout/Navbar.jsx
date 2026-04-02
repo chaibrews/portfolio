@@ -2,10 +2,18 @@ import { useState, useEffect, use } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { href: "#", label: "Home" },
+  { href: "#hero", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
+];
+
+const mobileNavLinks = [
+  { href: "#hero", label: "Home" },
+  { href: "#about", label: "About" },
+  { href: "#skills", label: "Skills" },
+  { href: "#projects", label: "Projects" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export const Navbar = () => {
@@ -70,22 +78,18 @@ export const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-background/90 backdrop-blur-md z-40 flex flex-col items-center justify-center transition-all duration-300 pointer-events-auto">
-          <div className="flex flex-col space-y-8">
-            {navLinks.map((link) => (
+        <div className="md:hidden glass-strong animate-fade-in">
+          <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
+            {mobileNavLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-md text-center text-muted-foreground hover:text-primary transition-colors duration-300"
+                className="text-lg text-center text-muted-foreground hover:text-foreground py-1"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
               </a>
             ))}
-
-            <a href="#contact" className="primary-button">
-              Contact Me
-            </a>
           </div>
         </div>
       )}
