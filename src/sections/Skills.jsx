@@ -38,32 +38,58 @@ const SKILLS = [
   // Dev Tools - IDEs
   { name: "Android Studio", category: "DevTools", subcategory: "IDEs" },
   { name: "Visual Studio", category: "DevTools", subcategory: "IDEs" },
-  { name: "Visual Studio Code", category: "DevTools", subcategory: "IDEs" },
   { name: "IntelliJ IDEA", category: "DevTools", subcategory: "IDEs" },
 ];
 
 const CATEGORIES = [
-  { key: "WebDev", label: "Web Development" },
-  { key: "SystemsDev", label: "Systems Development" },
-  { key: "DevTools", label: "Tools" },
+  { key: "All", label: "ALL" },
+  { key: "WebDev", label: "WEB" },
+  { key: "SystemsDev", label: "SYSTEMS" },
+  { key: "DevTools", label: "TOOLS" },
 ];
 
+// For normal tabs: group by subcategory
 const groupBySubcategory = (skills) =>
-  skills.reduce((groups, skill) => {
-    if (!groups[skill.subcategory]) groups[skill.subcategory] = [];
-    groups[skill.subcategory].push(skill);
-    return groups;
+  skills.reduce((acc, skill) => {
+    if (!acc[skill.subcategory]) acc[skill.subcategory] = [];
+    acc[skill.subcategory].push(skill);
+    return acc;
+  }, {});
+
+// For All tab: group by category, preserving CATEGORIES order
+const ALL_CATEGORY_LABELS = {
+  WebDev: "Web Development",
+  SystemsDev: "Systems Development",
+  DevTools: "Tools",
+};
+
+const groupByCategory = (skills) =>
+  skills.reduce((acc, skill) => {
+    const label = ALL_CATEGORY_LABELS[skill.category];
+    if (!acc[label]) acc[label] = [];
+    acc[label].push(skill);
+    return acc;
   }, {});
 
 export const Skills = () => {
-  const [activeCategory, setActiveCategory] = useState("WebDev");
+  const [activeCategory, setActiveCategory] = useState("All");
 
-  const grouped = groupBySubcategory(
-    SKILLS.filter((skill) => skill.category === activeCategory),
-  );
+  const isAll = activeCategory === "All";
+
+  const grouped = isAll
+    ? groupByCategory(SKILLS)
+    : groupBySubcategory(SKILLS.filter((s) => s.category === activeCategory));
+
+  // Preserve insertion order for All tab (WebDev → SystemsDev → DevTools)
+  const groupEntries = isAll
+    ? Object.values(ALL_CATEGORY_LABELS).map((label) => [
+        label,
+        grouped[label] ?? [],
+      ])
+    : Object.entries(grouped);
 
   return (
-    <section id="skills" className="py-48 px-10">
+    <section id="skills" className="py-20 md:py-48 px-10">
       <div className="max-w-5xl mx-auto">
         <Reveal variant="fade">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
@@ -72,15 +98,14 @@ export const Skills = () => {
         </Reveal>
 
         <Reveal variant="slide-up" delay={100}>
-          {/* Category Nav */}
-          <div className="font-mono text-sm flex mb-8 gap-2">
+          <div className="font-mono text-xs flex flex-wrap mb-8 gap-1">
             {CATEGORIES.map(({ key, label }) => (
               <button
                 key={key}
                 onClick={() => setActiveCategory(key)}
-                className={`flex-1 px-4 py-2 rounded-lg transition ${
+                className={`flex-1 px-4 py-2 rounded-lg transition tracking-widest ${
                   activeCategory === key
-                    ? "bg-primary text-black"
+                    ? "bg-primary text-white"
                     : "text-white/60 hover:text-primary"
                 }`}
               >
@@ -90,13 +115,12 @@ export const Skills = () => {
           </div>
         </Reveal>
 
-        {/* Skills Content — each subcategory group staggers in */}
         <div className="space-y-6">
-          {Object.entries(grouped).map(([subcategory, items], i) => (
-            <Reveal key={subcategory} variant="slide-up" delay={i * 80}>
+          {groupEntries.map(([label, items], i) => (
+            <Reveal key={label} variant="slide-up" delay={i * 80}>
               <div>
                 <h3 className="text-xs font-mono font-semibold mb-3 text-highlight uppercase tracking-widest">
-                  {subcategory}
+                  {label}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {items.map((skill) => (
