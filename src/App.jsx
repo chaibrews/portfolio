@@ -6,6 +6,7 @@ import { Projects } from "@/sections/Projects";
 import { Skills } from "@/sections/Skills";
 import { Contact } from "@/sections/Contact";
 import { LoadingScreen } from "@/components/LoadingScreen";
+import { Footer } from "@/components/Footer";
 
 const hasBooted = localStorage.getItem("chaibrews_booted") === "1";
 
@@ -21,7 +22,10 @@ function App() {
           isLoading ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
       >
+        {/* Navbar */}
         <Navbar />
+
+        {/* Main Content */}
         <main>
           <Hero />
           <About />
@@ -29,6 +33,9 @@ function App() {
           <Projects />
           <Contact />
         </main>
+
+        {/* Footer */}
+        <Footer />
       </div>
     </>
   );
