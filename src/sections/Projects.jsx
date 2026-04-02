@@ -7,7 +7,7 @@ const projects = [
     id: 1,
     title: "Marginalia",
     description:
-      "A digital annotation platform for physical book readers, designed to preserve the reading experience in a digital format.",
+      "A full-stack annotation platform for physical book readers, featuring logging, note-taking, and tagging systems.",
     image: "/projects/project1.png",
     tags: [
       "React",
@@ -26,7 +26,7 @@ const projects = [
     id: 2,
     title: "buildR.",
     description:
-      "An intuitive single-page resume builder that lets users design, preview, and export polished A4 resumes as PDFs, simplifying the job application process.",
+      "A React-based single-page application for building and exporting A4 resumes as PDFs, featuring real-time preview and dynamic form handling.",
     image: "/projects/project2.png",
     tags: ["React", "JavaScript"],
     status: "Completed",
@@ -37,12 +37,12 @@ const projects = [
     id: 3,
     title: "Personal Portfolio",
     description:
-      "A responsive portfolio website showcasing my projects, skills, and professional journey, built with modern web technologies for speed and clarity.",
+      "A responsive React portfolio application focused on performance, accessibility, and clean UI design, built to effectively present projects and technical experience.",
     image: "/projects/project3.png",
     tags: ["React", "JavaScript", "TailwindCSS"],
     status: "Completed",
-    demoUrl: "",
-    githubUrl: "",
+    demoUrl: "https://chaibrews-portfolio.vercel.app/",
+    githubUrl: "https://github.com/chaibrews/portfolio",
   },
 ];
 
@@ -71,9 +71,9 @@ export const Projects = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center">
             Featured <span className="text-primary">Projects</span>
           </h2>
-          <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
-            A selection of projects that I've built for fun and to learn new
-            technologies.
+          <p className="text-center text-muted-foreground mb-10 max-w-3xl mx-auto">
+            A selection of projects I've built to transform my ideas into
+            reality and experiment with modern technologies.
           </p>
         </Reveal>
 
@@ -81,7 +81,7 @@ export const Projects = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
           {projects.map((project, key) => (
             <Reveal key={project.id} variant="slide-up" delay={key * 120}>
-              <div className="group glass card-hover rounded-lg overflow-hidden shadow-xs h-full">
+              <div className="group glass card-hover rounded-lg overflow-hidden shadow-xs h-full flex flex-col">
                 <div className="h-48 overflow-hidden">
                   <img
                     src={project.image}
@@ -90,13 +90,18 @@ export const Projects = () => {
                   />
                 </div>
 
-                <div className="p-6 relative">
+                <div className="p-6 flex flex-col flex-grow">
                   {/* Status badge */}
                   <div className="flex items-center justify-center gap-2 mb-1">
                     <h3 className="text-xl text-center">{project.title}</h3>
                     {project.status === "In Progress" && (
-                      <span className="text-[8px] font-mono px-2 py-0.5 rounded-full border border-highlight/40 text-highlight">
+                      <span className="text-[8px] font-mono px-2 py-0.5 rounded-full border border-primary/40 text-primary">
                         in progress
+                      </span>
+                    )}
+                    {project.status === "Completed" && (
+                      <span className="text-[8px] font-mono px-2 py-0.5 rounded-full border border-green-500/40 text-highlight">
+                        completed
                       </span>
                     )}
                   </div>
@@ -105,7 +110,7 @@ export const Projects = () => {
                     {project.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mb-10">
+                  <div className="flex flex-wrap gap-2 mb-5">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
@@ -116,7 +121,7 @@ export const Projects = () => {
                     ))}
                   </div>
 
-                  <div className="absolute bottom-0 left-0 p-6 flex justify-between items-center">
+                  <div className="mt-auto flex justify-between items-center">
                     <div className="flex space-x-3">
                       {project.demoUrl && (
                         <a

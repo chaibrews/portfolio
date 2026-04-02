@@ -5,15 +5,14 @@ const TAGS = [
   "React",
   "JavaScript",
   "TypeScript",
+  "Tailwind",
   "Node.js",
   "PostgreSQL",
-  "Linux",
-  "C/C++",
 ];
 
 export const Contact = () => {
   return (
-    <section id="contact" className="py-24 px-4 relative">
+    <section id="contact" className="py-24 md:py-36 px-4 relative">
       <div className="container mx-auto max-w-5xl">
         <Reveal variant="fade">
           <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center">
@@ -71,7 +70,7 @@ export const Contact = () => {
                 building <span className="text-highlight">Marginalia</span>
               </p>
               <p className="text-[11px] text-muted-foreground pl-3">
-                studying for <span className="text-primary">JLPT N3</span>
+                studying for <span className="text-highlight">JLPT N3</span>
               </p>
               <p className="text-[11px] mt-1">
                 <span className="text-primary">~/chai </span>

@@ -136,7 +136,7 @@ export const Hero = () => {
           {/* Intro */}
           <h1>
             <span className="text-5xl md:text-6xl font-bold tracking-tight">
-              hi, i'm <span className="text-primary">chai</span>.
+              Hi, i'm <span className="text-primary">Chai</span>.
             </span>
           </h1>
 

@@ -6,6 +6,7 @@ const SKILLS = [
   { name: "React", category: "WebDev", subcategory: "Frontend" },
   { name: "JavaScript", category: "WebDev", subcategory: "Frontend" },
   { name: "TypeScript", category: "WebDev", subcategory: "Frontend" },
+  { name: "Tailwind", category: "WebDev", subcategory: "Frontend" },
   { name: "HTML", category: "WebDev", subcategory: "Frontend" },
   { name: "CSS", category: "WebDev", subcategory: "Frontend" },
   // Web Dev - Backend
