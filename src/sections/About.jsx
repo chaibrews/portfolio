@@ -3,11 +3,11 @@ import { Reveal } from "@/components/Reveal";
 
 export const About = () => {
   return (
-    <section className="py-36 px-10 relative" id="about">
+    <section className="py-32 md:py-42 px-10 relative" id="about">
       <div className="container mx-auto max-w-5xl">
         <Reveal variant="fade">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-12 text-center">
-            READ<span className="text-primary">ME</span>.md
+            About<span className="text-primary"> Me</span>
           </h2>
         </Reveal>
 
@@ -15,52 +15,39 @@ export const About = () => {
           {/* Left — bio */}
           <Reveal variant="slide-right" delay={100}>
             <div className="space-y-4">
-              <h3 className="text-xl tracking-tight">
-                <p>
-                  <span className="text-highlight">Software Engineer</span> by
-                  Trade・<span className="text-primary">Web Developer</span> by
-                  Passion
-                </p>
-              </h3>
-
-              <div className="space-y-4 text-sm md:text-[16px]">
+              <div className="space-y-4 text-[18px] text-center">
                 <p className="text-muted-foreground">
                   I'm a Software Engineer with 1.5+ years of work experience
                   maintaining production systems across{" "}
-                  <span className="text-highlight">
+                  <span className="text-highlight font-bold">
                     web, mobile, desktop, and low-level environments.
                   </span>{" "}
-                  I've worked across multiple stacks, so I treat technologies as
-                  tools. What I've gained that is far more valuable is the
-                  ability to solve problems at the system level: understanding
-                  how things break, why they break, and how to fix them
-                  efficiently.
                 </p>
 
                 <p className="text-muted-foreground"></p>
 
                 <p className="text-muted-foreground">
-                  More than problem-solving,
-                  <span className="text-primary"> I like to create</span>.
-                  Outside of work, I like films, books, writing, and
-                  design—anything that feels intentional. That shows up in what
-                  I build: small tools, ideas, and projects that make life a
-                  little easier or more interesting.
-                </p>
-
-                <p className="text-muted-foreground">
-                  I'm currently looking to transition into a web development
-                  role, where I can take ownership and build products that
-                  people actually use.
+                  Beyond problem-solving, I’m drawn to design, writing, and the
+                  art of software development.
+                  <span className="text-primary font-bold">
+                    {" "}
+                    I love to create
+                  </span>
+                  . Whether it’s small tools that make everyday tasks easier or
+                  ambitious projects inspired by ideas I haven’t seen anywhere
+                  else online,{" "}
+                  <span className="text-primary font-bold">
+                    building software is my way of making ideas happen.
+                  </span>
                 </p>
               </div>
 
-              <div className="flex flex-column sm:flex-row gap-4 pt-4 justify-center">
+              <div className="pt-2 text-center">
+                <p className="text-sm text-muted-foreground mb-2">
+                  Got an idea, opportunity, or just want to say hi?
+                </p>
                 <a href="#contact" className="primary-button">
-                  Get In Touch
-                </a>
-                <a href="#contact" className="secondary-button">
-                  Download CV
+                  Send me a message
                 </a>
               </div>
             </div>
@@ -70,22 +57,16 @@ export const About = () => {
           <div className="grid grid-cols-1 gap-6">
             {[
               {
+                icon: <Briefcase className="h-6 w-6 text-primary" />,
+                desc: "I understand how software works beyond the surface, where they fail, and how to make them more reliable.",
+              },
+              {
                 icon: <Code className="h-6 w-6 text-primary" />,
-                title: "Web Development",
-                desc: "Creating responsive websites and web applications with modern frameworks.",
-                delay: 150,
+                desc: "From small tools to bigger ideas, I build things that make life easier or a bit more interesting.",
               },
               {
                 icon: <User className="h-6 w-6 text-primary" />,
-                title: "UI/UX Design",
-                desc: "Designing intuitive user interfaces and seamless user experiences.",
-                delay: 250,
-              },
-              {
-                icon: <Briefcase className="h-6 w-6 text-primary" />,
-                title: "Project Management",
-                desc: "Leading projects from conception to completion with agile methodologies.",
-                delay: 350,
+                desc: "I'd like to focus on frontend and full-stack work that results in real, usable products.",
               },
             ].map(({ icon, title, desc, delay }) => (
               <Reveal key={title} variant="slide-left" delay={delay}>
@@ -94,7 +75,9 @@ export const About = () => {
                     <div className="p-3 rounded-full bg-primary/10">{icon}</div>
                     <div className="text-left">
                       <h4 className="text-lg">{title}</h4>
-                      <p className="text-muted-foreground">{desc}</p>
+                      <p className="text-[16px] text-muted-foreground">
+                        {desc}
+                      </p>
                     </div>
                   </div>
                 </div>
