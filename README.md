@@ -1,16 +1,23 @@
-# React + Vite
+# chaibrews portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Preview](./src/assets/preview.png)
 
-Currently, two official plugins are available:
+<h4>
+    <a href="https://cv-buildr.vercel.app/" target="_blank">
+        chaibrews portfolio | live demo ☕︎
+    </a>
+</h4>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+A responsive React portfolio application focused on performance, accessibility, and clean UI design.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+[![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](#)
+[![TypeScript](https://shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=FFF&)](#)
+[![tailwindcss](https://img.shields.io/badge/tailwindcss-0F172A?style=for-the-badge&logo=tailwindcss)](#)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Terminal/OS-inspired interface with boot sequence animation.
+- Fully mobile-responsive layout for seamless viewing on phones and tablets.
+- Clear navigation across sections: Home, About, Skills, Projects, Contact.
