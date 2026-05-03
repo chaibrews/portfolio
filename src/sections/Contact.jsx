@@ -41,7 +41,7 @@ export const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative px-4 py-20 md:py-24 overflow-hidden"
+      className="relative px-4 py-20 md:py-26 overflow-hidden"
     >
       {/* soft background accents */}
       <div className="pointer-events-none absolute inset-0 -z-10">
@@ -73,8 +73,8 @@ export const Contact = () => {
 
             <div className="grid gap-0">
               {/* identity panel */}
-              <div className="border-b border-surface p-5 sm:p-7 sm:pb-0 md:border-b-0 md:border-r">
-                <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
+              <div className="border-b border-surface p-3 sm:p-7 sm:pb-0 md:border-b-0 md:border-r">
+                <div className="flex flex-col sm:flex-row sm:items-start">
                   <div className="relative mx-auto flex-shrink-0 sm:mx-0"></div>
 
                   <div className="min-w-0 flex-1 text-center sm:text-left">
@@ -106,7 +106,7 @@ export const Contact = () => {
                         href={href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`group flex items-center gap-3 rounded-md px-4 py-3 text-left transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 ${className}`}
+                        className={`group flex items-center gap-3 rounded-md px-4 py-2 text-left transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 ${className}`}
                       >
                         <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-white/15">
                           <Icon size={16} />

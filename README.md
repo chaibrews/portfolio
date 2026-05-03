@@ -1,6 +1,6 @@
 # chaibrews portfolio
 
-![Preview](./src/assets/preview.png)
+![Preview](public/projects/project3-2.png)
 
 <h4>
     <a href="https://cv-buildr.vercel.app/" target="_blank">
