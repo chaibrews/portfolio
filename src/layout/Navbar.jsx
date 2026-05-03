@@ -1,5 +1,5 @@
 import { useState, useEffect, use } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, CoffeeIcon } from "lucide-react";
 
 const navLinks = [
   { href: "#hero", label: "Home" },
@@ -37,13 +37,17 @@ export const Navbar = () => {
       } z-50`}
     >
       <nav className="container mx-auto px-6 flex items-center justify-between">
-        <a
-          href="#"
-          className="font-bold font-mono tracking-wider hover:text-primary"
-        >
-          <span className="text-primary">~/</span>chaibrews{" "}
-          <span className="text-xl text-primary">☕︎</span>
-        </a>
+        <div className="flex items-center gap-2">
+          <a
+            href="#"
+            className="font-bold font-mono tracking-wider hover:text-primary"
+          >
+            <span className="text-primary">~/</span>chaibrews{" "}
+          </a>
+          <span className="text-xl text-primary">
+            <CoffeeIcon size={16} />
+          </span>
+        </div>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-1">

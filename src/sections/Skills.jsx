@@ -1,142 +1,128 @@
-import { useState } from "react";
 import { Reveal } from "@/components/Reveal";
 
-const SKILLS = [
-  // Web Dev - Frontend
-  { name: "React", category: "WebDev", subcategory: "Frontend" },
-  { name: "JavaScript", category: "WebDev", subcategory: "Frontend" },
-  { name: "TypeScript", category: "WebDev", subcategory: "Frontend" },
-  { name: "Tailwind", category: "WebDev", subcategory: "Frontend" },
-  { name: "HTML", category: "WebDev", subcategory: "Frontend" },
-  { name: "CSS", category: "WebDev", subcategory: "Frontend" },
-  // Web Dev - Backend
-  { name: "Node.js", category: "WebDev", subcategory: "Backend" },
-  { name: "Express", category: "WebDev", subcategory: "Backend" },
-  // Web Dev - Database
-  { name: "PostgreSQL", category: "WebDev", subcategory: "Database" },
-  { name: "MongoDB", category: "WebDev", subcategory: "Database" },
-  // Systems Dev - Languages
-  { name: "Java", category: "SystemsDev", subcategory: "Languages" },
-  { name: "Python", category: "SystemsDev", subcategory: "Languages" },
-  { name: "C++", category: "SystemsDev", subcategory: "Languages" },
-  { name: "C", category: "SystemsDev", subcategory: "Languages" },
-  // Systems Dev - Scripting
-  { name: "Bash", category: "SystemsDev", subcategory: "Scripting" },
-  // Systems Dev - Systems
-  { name: "Linux", category: "SystemsDev", subcategory: "Systems" },
-  { name: "MacOS", category: "SystemsDev", subcategory: "Systems" },
-  { name: "Windows", category: "SystemsDev", subcategory: "Systems" },
-  { name: "ChromeOS", category: "SystemsDev", subcategory: "Systems" },
-  // Dev Tools - Development
-  { name: "Git", category: "DevTools", subcategory: "Development" },
-  { name: "Docker", category: "DevTools", subcategory: "Development" },
-  { name: "Vercel", category: "DevTools", subcategory: "Development" },
-  { name: "Netlify", category: "DevTools", subcategory: "Development" },
-  // Dev Tools - Design
-  { name: "Figma", category: "DevTools", subcategory: "Design" },
-  { name: "Adobe Photoshop", category: "DevTools", subcategory: "Design" },
-  { name: "Adobe Illustrator", category: "DevTools", subcategory: "Design" },
-  // Dev Tools - IDEs
-  { name: "Android Studio", category: "DevTools", subcategory: "IDEs" },
-  { name: "Visual Studio", category: "DevTools", subcategory: "IDEs" },
-  { name: "IntelliJ IDEA", category: "DevTools", subcategory: "IDEs" },
+const CORE_GROUPS = [
+  {
+    title: "Frontend",
+    eyebrow: "web",
+    description: "Interfaces, layouts, and client-side application work.",
+    skills: ["React", "JavaScript", "TypeScript", "Tailwind", "HTML", "CSS"],
+  },
+  {
+    title: "Backend & Data",
+    eyebrow: "server",
+    description: "APIs, databases, and application foundations.",
+    skills: ["Node.js", "Express", "PostgreSQL", "Prisma"],
+  },
+  {
+    title: "Systems",
+    eyebrow: "low level",
+    description: "Systems-oriented languages, scripting, and environments.",
+    skills: [
+      "Java",
+      "Python",
+      "Objective-C",
+      "C++",
+      "C",
+      "Bash",
+      "Linux",
+      "macOS",
+    ],
+  },
 ];
 
-const CATEGORIES = [
-  { key: "All", label: "ALL" },
-  { key: "WebDev", label: "WEB" },
-  { key: "SystemsDev", label: "SYSTEMS" },
-  { key: "DevTools", label: "TOOLS" },
+const SUPPORTING_TOOLS = [
+  "Git",
+  "Postman",
+  "Vercel",
+  "Render",
+  "Figma",
+  "Photoshop",
+  "Android Studio",
+  "Xcode",
+  "Visual Studio",
+  "IntelliJ IDEA",
 ];
-
-// For normal tabs: group by subcategory
-const groupBySubcategory = (skills) =>
-  skills.reduce((acc, skill) => {
-    if (!acc[skill.subcategory]) acc[skill.subcategory] = [];
-    acc[skill.subcategory].push(skill);
-    return acc;
-  }, {});
-
-// For All tab: group by category, preserving CATEGORIES order
-const ALL_CATEGORY_LABELS = {
-  WebDev: "Web Development",
-  SystemsDev: "Systems Development",
-  DevTools: "Tools",
-};
-
-const groupByCategory = (skills) =>
-  skills.reduce((acc, skill) => {
-    const label = ALL_CATEGORY_LABELS[skill.category];
-    if (!acc[label]) acc[label] = [];
-    acc[label].push(skill);
-    return acc;
-  }, {});
 
 export const Skills = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  const isAll = activeCategory === "All";
-
-  const grouped = isAll
-    ? groupByCategory(SKILLS)
-    : groupBySubcategory(SKILLS.filter((s) => s.category === activeCategory));
-
-  // Preserve insertion order for All tab (WebDev → SystemsDev → DevTools)
-  const groupEntries = isAll
-    ? Object.values(ALL_CATEGORY_LABELS).map((label) => [
-        label,
-        grouped[label] ?? [],
-      ])
-    : Object.entries(grouped);
-
   return (
-    <section id="skills" className="py-20 md:py-48 px-10">
-      <div className="max-w-5xl mx-auto">
+    <section
+      id="skills"
+      className="relative overflow-hidden py-20 px-4 sm:px-6 md:py-36 md:px-10"
+    >
+      <div className="mx-auto max-w-5xl">
         <Reveal variant="fade">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            My <span className="text-primary">Skills</span>
-          </h2>
-        </Reveal>
-
-        <Reveal variant="slide-up" delay={100}>
-          <div className="font-mono text-xs flex flex-wrap mb-8 gap-1">
-            {CATEGORIES.map(({ key, label }) => (
-              <button
-                key={key}
-                onClick={() => setActiveCategory(key)}
-                className={`flex-1 px-4 py-2 rounded-lg transition tracking-widest ${
-                  activeCategory === key
-                    ? "bg-primary text-white"
-                    : "text-white/60 hover:text-primary"
-                }`}
-              >
-                {label}
-              </button>
-            ))}
+          <div className="mx-auto mb-8 max-w-2xl text-center md:mb-12">
+            <h2 className="text-3xl font-bold md:text-4xl">
+              My <span className="text-primary">Skills</span>
+            </h2>
+            <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
+              A focused mix of technologies I use to build, debug, and ship
+              practical software.
+            </p>
           </div>
         </Reveal>
 
-        <div className="space-y-6">
-          {groupEntries.map(([label, items], i) => (
-            <Reveal key={label} variant="slide-up" delay={i * 80}>
-              <div>
-                <h3 className="text-xs font-mono font-semibold mb-3 text-highlight uppercase tracking-widest">
-                  {label}
-                </h3>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
+          {CORE_GROUPS.map(({ title, eyebrow, description, skills }, i) => (
+            <Reveal key={title} variant="slide-up" delay={i * 90}>
+              <article className="glass group h-full rounded-lg border border-surface/70 p-5 transition duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-primary/[0.03] sm:p-6">
+                <div className="mb-2 flex items-start justify-between gap-4">
+                  <div>
+                    <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.28em] text-highlight/80">
+                      {eyebrow}
+                    </p>
+                    <h3 className="text-lg font-bold tracking-wide text-foreground">
+                      {title}
+                    </h3>
+                  </div>
+
+                  <span className="mt-1 h-2 w-2 rounded-full bg-primary/70 opacity-60 transition group-hover:opacity-100" />
+                </div>
+
+                <p className="mb-2 min-h-0 text-sm leading-relaxed text-muted-foreground md:min-h-[3.5rem]">
+                  {description}
+                </p>
+
                 <div className="flex flex-wrap gap-2">
-                  {items.map((skill) => (
+                  {skills.map((skill) => (
                     <span
-                      key={skill.name}
-                      className="px-3 py-1 text-sm rounded-full glass bg-secondary text-muted-foreground tag-hover"
+                      key={skill}
+                      className="rounded-lg border border-surface bg-secondary/70 px-3 py-1.5 text-xs text-muted-foreground transition-colors duration-200 hover:border-primary/40 hover:text-primary"
                     >
-                      {skill.name}
+                      {skill}
                     </span>
                   ))}
                 </div>
-              </div>
+              </article>
             </Reveal>
           ))}
         </div>
+
+        <Reveal variant="fade" delay={280}>
+          <aside className="mx-auto mt-5 rounded-lg border border-surface/70 bg-surface/15 px-4 py-4 sm:px-5 md:mt-6">
+            <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between md:gap-6">
+              <div className="md:max-w-[12rem]">
+                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground/60">
+                  supporting
+                </p>
+                <h3 className="mt-1 text-sm font-semibold text-foreground">
+                  Tools & Design
+                </h3>
+              </div>
+
+              <div className="flex flex-wrap gap-x-3 gap-y-2 text-xs leading-relaxed text-muted-foreground sm:text-sm md:justify-end">
+                {SUPPORTING_TOOLS.map((tool) => (
+                  <span
+                    key={tool}
+                    className="whitespace-nowrap rounded-full bg-background/30 px-2.5 py-1"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </aside>
+        </Reveal>
       </div>
     </section>
   );
