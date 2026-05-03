@@ -5,10 +5,10 @@ import { Reveal } from "@/components/Reveal";
 const projects = [
   {
     id: 1,
-    title: "Marginalia",
+    title: "huntR.",
     description:
-      "A full-stack annotation platform for physical book readers, featuring logging, note-taking, and tagging systems.",
-    image: "/projects/project1.png",
+      "A full-stack kanban-style job application tracker designed to make the job search process more organized and less stressful. ",
+    image: "/projects/project7.png",
     tags: [
       "React",
       "TypeScript",
@@ -19,15 +19,15 @@ const projects = [
       "PostgreSQL",
     ],
     status: "In Progress",
-    demoUrl: "",
-    githubUrl: "",
+    demoUrl: "https://career-huntr.vercel.app/",
+    githubUrl: "https://github.com/chaibrews/huntr",
   },
   {
     id: 2,
     title: "buildR.",
     description:
-      "A React-based single-page application for building and exporting A4 resumes as PDFs, featuring real-time preview and dynamic form handling.",
-    image: "/projects/project2.png",
+      "A React-based resume builder inspired by engineering resume formats, enabling users to create clean, structured A4 resumes with real-time preview and seamless PDF export, all within the browser.",
+    image: "/projects/project2-2.png",
     tags: ["React", "JavaScript"],
     status: "Completed",
     demoUrl: "https://cv-buildr.vercel.app/",
@@ -38,7 +38,7 @@ const projects = [
     title: "Personal Portfolio",
     description:
       "A responsive React portfolio application focused on performance, accessibility, and clean UI design, built to effectively present projects and technical experience.",
-    image: "/projects/project3.png",
+    image: "/projects/project3-2.png",
     tags: ["React", "JavaScript", "TailwindCSS"],
     status: "Completed",
     demoUrl: "https://chaibrews-portfolio.vercel.app/",
@@ -65,7 +65,7 @@ function GithubIcon({ size = 20, color = "currentColor", ...props }) {
 
 export const Projects = () => {
   return (
-    <section id="projects" className="py-24 px-10 relative">
+    <section id="projects" className="py-24 px-4 md:px-10 relative">
       <div className="container mx-auto max-w-5xl">
         <Reveal variant="fade">
           <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center">
