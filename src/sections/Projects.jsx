@@ -72,8 +72,8 @@ export const Projects = () => {
             Featured <span className="text-primary">Projects</span>
           </h2>
           <p className="text-center text-muted-foreground mb-10 max-w-3xl mx-auto">
-            A selection of projects I've built to transform my ideas into
-            reality and experiment with modern technologies.
+            A look at what I’ve been building and iterating on, from practical
+            tools to explorations of new technologies.
           </p>
         </Reveal>
 

@@ -7,7 +7,7 @@ const CARDS = [
     symbolColor: "text-primary",
     description:
       "I've spent years as a freelance designer and video editor, with a hobby of drawing digital illustrations, that it shaped how I approach visual systems in design and code. Design isn't just decoration; it's structure, hierarchy, and intent.",
-    footnote: "my creativity started with photoshop, not visual studio.",
+    footnote: "my creativity started with photoshop, not vs code.",
   },
   {
     label: "writer",
@@ -24,7 +24,7 @@ const CARDS = [
     description:
       "I enjoy building things that excite me, whether it’s a small tool or a product that solves real problems. Most often, those problems are my own, which is why I tend to create the tools I need myself.",
     footnote:
-      "I built buildR to write my resume, huntR to track my applications, and this site as the portfolio behind it",
+      "i built buildR to write my resume, huntR to track my applications, and this site to showcase my works",
   },
   {
     label: "software engineer",
@@ -32,7 +32,8 @@ const CARDS = [
     symbolColor: "text-primary",
     description:
       "I'm experienced in production systems across web, mobile, desktop, and low-level environments. I understand how software works beyond the surface—where it fails, why it breaks, and how to make it more reliable.",
-    footnote: "yes, i've debugged printer drivers.",
+    footnote:
+      "i always worried something would go wrong, but the things that went wrong were never what i worried about.",
   },
 ];
 

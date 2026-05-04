@@ -55,9 +55,9 @@ export const Skills = () => {
             <h2 className="text-3xl font-bold md:text-4xl">
               My <span className="text-primary">Skills</span>
             </h2>
-            <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
-              A focused mix of technologies I use to build, debug, and ship
-              practical software.
+            <p className="mx-auto mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base">
+              A mix of technologies I use in practice and at work, from core
+              proficiencies to supporting tools.
             </p>
           </div>
         </Reveal>

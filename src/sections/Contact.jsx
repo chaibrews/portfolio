@@ -56,8 +56,7 @@ export const Contact = () => {
               Contact <span className="text-primary">Me</span>
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
-              Want to collaborate, talk about a role, or ask about one of my
-              projects? Here&apos;s my call card.
+              Interested in working together? Here’s my call card.
             </p>
           </div>
         </Reveal>
